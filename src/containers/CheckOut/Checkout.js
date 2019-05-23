@@ -3,13 +3,21 @@ import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSumm
 class Checkout extends Component {
     state = {
         ingredients: {
-            bacon: 1,
-            cheese: 1,
-            salad: 1,
-            meat: 1
+            bacon: 0,
+            cheese: 0,
+            salad: 0,
+            meat: 0
         }
     };
-
+    componentDidMount(){
+        const query = new URLSearchParams(this.props.location.search);
+        const ingredients = {};
+        for(let param of query.entries()){
+            ingredients[param[0]] = +param[1]
+        }
+        console.log(ingredients)
+        this.setState({ingredients:ingredients})
+    }
 
     checkoutCancelledHandler = () => {
         this.props.history.goBack();
