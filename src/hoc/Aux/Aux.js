@@ -1,3 +1,4 @@
-const aux = (props) => props.children;
+// eslint-disable-next-line react/no-typos
+const aux = (props) => props.children ;
 
-export default aux;
+export default aux
