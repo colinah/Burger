@@ -1,18 +1,19 @@
-// eslint-disable-next-line react/no-typos
 import React, { Component } from 'react';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+
 import Layout from './hoc/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
-import {Route, Switch} from 'react-router-dom';
-import Checkout from './containers/CheckOut/Checkout';
+import Checkout from './containers/Checkout/Checkout';
+import Orders from './containers/Orders/Orders';
 
 class App extends Component {
-  render() {
+  render () {
     return (
-      <div className="App">
+      <div>
         <Layout>
           <Switch>
-            <Route path="/checkout" component={Checkout}/>
+            <Route path="/checkout" component={Checkout} />
+            <Route path="/orders" component={Orders} />
             <Route path="/" exact component={BurgerBuilder} />
           </Switch>
         </Layout>
